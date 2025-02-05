@@ -1,10 +1,13 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import NavItems from './components/NavItems'
 
 function App() {
  
   return (
     <>
-     <h1>Hello React Developer</h1>
+    <NavItems />
+     <Outlet />
     </>
   )
 }

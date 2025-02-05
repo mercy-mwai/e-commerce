@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client"
 import './index.css'
 import App from './App.jsx'
-
+import Home from "./Home.jsx";
+import Blog from "./Blog.jsx";
 import 'swiper/css';
 
 // bootstrap css
@@ -24,7 +25,17 @@ import {
 const router=createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    children:[
+      {
+        path: "/",
+        element: <Home/>
+      },
+      {
+        path: "/blog",
+        element: <Blog/>
+      }
+    ]
   }
 ])
 
