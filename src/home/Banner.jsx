@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import productData from "../products.json"
+import productData from "../products.json";
+import { Link } from 'react-router-dom';
+
 
 const title =(
   <h2>Search Your One From <span>Thousands</span> of Products</h2>
@@ -40,14 +42,25 @@ const Banner = () => {
       <div className="container">
         <div className="banner- content">
           {title}
-          <form>
-            <input type='text' name='search' id='search' placeholder='Search your product' value={searchInput} onChange={handleSearch}></input>
-          </form>
+          <form className="search-box">
+  <input
+    type="text"
+    name="search"
+    id="search"
+    placeholder="Search your product"
+    value={searchInput}
+    onChange={handleSearch}
+  />
+  <button type="submit">
+    <i className="icofont-search"></i>
+  </button>
+</form>
+
           <p>{desc}</p>
           <ul className="lab-ul">
             {
               searchInput && filteredProducts.map((product, i) => <li key={i}>
-                <Link>{product.name}</Link>
+                <Link to={`/shop/${product.id}`}>{product.name}</Link>
               </li>)
             }
           </ul>
