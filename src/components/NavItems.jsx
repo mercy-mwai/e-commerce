@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import logo  from "../assets/images/logo/logo.png"
 
 
-
 const NavItems = () => {
     const [menuToggle, setMenuToggle]=useState(false);
     const [socialToggle, setSocialToggle] = useState(false);
@@ -59,6 +58,12 @@ const NavItems = () => {
                                     <span></span>
                                     <span></span>
                                     <span></span>
+                                </div>
+                                {/*social togggler menu*/}
+                                <div className="elepsis-bar d-md-none"
+                                onClick={()=>{setSocialToggle(!socialToggle) }}
+                                >
+                                <i className="icofont-info-square"></i>
                                 </div>
                     </div>
                 </div>
