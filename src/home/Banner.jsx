@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import productData from "../products.json";
 import { Link } from 'react-router-dom';
+import SelectedCategories from '../components/selectedCategories';
 
 
 const title =(
@@ -43,6 +44,7 @@ const Banner = () => {
         <div className="banner- content">
           {title}
           <form className="search-box">
+            <SelectedCategories />
   <input
     type="text"
     name="search"
