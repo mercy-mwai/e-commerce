@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Rating from "../components/Rating";
 
 const title = "Our Products";
 
@@ -104,6 +105,30 @@ const CategoryShowCase = () => {
             <li onClick={()=>filterItem("Phones")} >Phones</li>
             <li onClick={()=>filterItem("Beauty")} >Beauty</li>
           </ul>
+        </div>
+      </div>
+      {/* section body */}
+      <div className="section-wrapper">
+        <div>
+          {
+            items.map((product) =><div key={product.id} className="col">
+              <div className="course-item style-4">
+                <div className="course-inner">
+                  <div className="course-thubm">
+                    <img src={product.imgUrl} alt="" />
+                    <div className="course-category">
+                      <div className="course-cate">
+                        <a href="#">{product.cate}</a>
+                      </div>
+                      <div className="course-review"> 
+                        <Rating />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>)
+          }
         </div>
       </div>
     </div>
