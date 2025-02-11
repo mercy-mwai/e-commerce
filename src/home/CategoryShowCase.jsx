@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Rating from "../components/Rating";
+import { Link } from "react-router-dom";
 
 const title = "Our Products";
 
@@ -109,7 +110,7 @@ const CategoryShowCase = () => {
       </div>
       {/* section body */}
       <div className="section-wrapper">
-        <div>
+        <div className="row g-4 justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
           {
             items.map((product) =><div key={product.id} className="col">
               <div className="course-item style-4">
@@ -125,6 +126,19 @@ const CategoryShowCase = () => {
                       </div>
                     </div>
                   </div>
+                  {/*content*/}
+                  <div className="course-content">
+                    <Link to={`/shop/${product.id}`}><h6>{product.title}</h6></Link>
+                    <div className="course-footer">
+                      <div className="course-author">
+                        <Link to="/" className="ca-name">{product.brand}</Link>
+                      </div>
+                      <div className="course-price">
+                        {product.price}
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>)
