@@ -82,8 +82,11 @@ const ProductData = [
 const CategoryShowCase = () => {
   const [items, setItems] = useState(ProductData);
 
-  const filterItem=()=>{
-
+  const filterItem=(categItem)=>{
+    const updateItems=ProductData.filter((carElement) =>{
+      return carElement.cate === categItem;
+    });
+    setItems(updateItems);
   };
   return (
    <div className="course-section style-3 padding-tb">
@@ -110,12 +113,12 @@ const CategoryShowCase = () => {
       </div>
       {/* section body */}
       <div className="section-wrapper">
-        <div className="row g-4 justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
+        <div className="row g-4 justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 course-filter">
           {
             items.map((product) =><div key={product.id} className="col">
               <div className="course-item style-4">
                 <div className="course-inner">
-                  <div className="course-thubm">
+                  <div className="course-thumb">
                     <img src={product.imgUrl} alt="" />
                     <div className="course-category">
                       <div className="course-cate">
