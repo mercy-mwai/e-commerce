@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 
+import ProductData from "../products.json";
+import ProductCards from './ProductCards';
+
 const showResults="Showing 01 - 12 of 139 Results"
-import ProductData from "../products.json"
 
 const Shop = () => {
   const [gridList, setGridList]=useState(true);
@@ -27,6 +29,9 @@ const Shop = () => {
                         <i className='icofont-listine-dots'></i>
                       </a>
                     </div>
+                  </div>
+                  <div>
+                    <ProductCards gridList={gridList} products={products} />
                   </div>
                 </article>
               </div>
