@@ -51,7 +51,7 @@ const Shop = () => {
                   </div>
                 </div>
                 <div>
-                  <ProductCards gridList={gridList} products={products} />
+                  <ProductCards gridList={gridList} products={currentProducts} />
                 </div>
 
                 <Pagination
