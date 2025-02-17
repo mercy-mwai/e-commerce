@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Search = ({products , gridList}) => {
-    const [searchTerm ,setSearchTerm]=useState(" ");
-    const filteredProducts = (products || []).filter((product) => 
-        product.name?.toLowerCase().includes(searchTerm.toLowerCase()) // ✅ Safe filtering
-    );
+    const [searchTerm ,setSearchTerm]=useState("");
+    const filteredProducts= products.filter((product) => product.name.toLowerCase().includes(searchTerm.
+        toLowerCase()
+      ));
   return (
     <div className='widget widget-search'>
     <form className='search-wrapper mb-3'>
