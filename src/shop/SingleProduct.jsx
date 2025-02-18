@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { Autoplay } from "swiper/modules";
+import ProductDisplay from "./ProductDisplay";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -20,7 +21,7 @@ const SingleProduct = () => {
   }, []);
 
   const result = product.filter((p) => p.id === id);
-  console.log(result);
+  //console.log(result);
 
   return (
     <div>
@@ -71,7 +72,15 @@ const SingleProduct = () => {
                     </div>
 
                     {/* Product Details Section */}
-                    <div className="col-md-6 col-12">Details</div>
+                    <div className="col-md-6 col-12">
+                      <div className="post-content">
+                        <div>
+                          {
+                            result.map(item => <ProductDisplay key={item.id} item={item}/>)
+                          }
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
