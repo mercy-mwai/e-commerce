@@ -192,7 +192,7 @@ const CartPage = () => {
                   </div>
                   <div className="col-md-6 col-12"> 
                         <div className="cart-overview">
-                            <h3>Cart Total</h3>
+                            <h3>Cart Totals</h3>
                             <ul className="lab-ul">
                                 <li>
                                     <span className="pull-left">Cart SubTotal</span>
