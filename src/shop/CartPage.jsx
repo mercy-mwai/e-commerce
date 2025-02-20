@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import PageHeader from '../components/PageHeader';
 import { Link } from 'react-router-dom';
+import delImgUrl from '../assets/images/shop/del.png'
 
 const CartPage=()=>{
     const [cartItems, setCartItems] =useState([]);
@@ -13,7 +14,7 @@ const CartPage=()=>{
     //calculate price
 
     const calculateTotalPrice= (item)=>{
-       return item.price  += item.quantity;
+       return item.price  * item.quantity;
     };
 
     //handle quantity increase
@@ -96,10 +97,15 @@ return(
                                             <td className='cat-price'> ${item.price}</td>
                                             <td className="cat-quantity">
                                                 <div className="cart-plus-minus">
-                                                    <div className='dec qtybutton'>-</div>
+                                                    <div className='dec qtybutton' onClick={()=> handleDecrease(item)}>-</div>
                                                     <input type='text' className='cart-plus-minus-box' name='qtybutton' value={item.quantity}  />
-                                                    <div className='inc qtybutton'>+</div>
+                                                    <div className='inc qtybutton' onClick={() => handleIncrease(item)}>+</div>
                                                 </div>
+                                            </td>
+                                            <td className='cat-toprice'>{calculateTotalPrice(item)}</td>
+                                            <td className='cat-edit'>
+                                                <a href='#' onClick={()=>handleRemoveItem(item)}>
+                                                    <img src={delImgUrl} alt='' /></a>
                                             </td>
                                         </tr>
                                     ))
@@ -108,6 +114,22 @@ return(
                         </table>
                     </div>
                     {/* cart top ending..... */}
+                    {/* cart bottom */}
+                    <div className='cart-bottom'>
+                        {/*checkout box */}
+                        <div className='cart-checkout-box'>
+                            <form className="coupon">
+                                <input className='cart-page-input-text' type='text' name='coupon' id='coupon' 
+                                placeholder='Coupon code....' />
+                                <input type='submit' value={ "Apply Coupon"} />
+                            </form>
+                            <form className='cart-checkout'>
+                                <input type="submit" value="Update Cart" />
+                                <div>Checkout Page</div>
+                            </form>
+                        </div>
+                        {/*checkout box end------ */}
+                    </div>
                 </div>
             </div>
         </div>
