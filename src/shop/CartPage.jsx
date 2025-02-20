@@ -151,7 +151,7 @@ const CartPage = () => {
               {/*checkout box end------ */}
               {/* shopping box */}
               <div className="shiping-box">
-                <div className="row">
+                <div className="row ">
                   <div className="col-md-6 col-12">
                     <div className="calculate-shiping">
                       <h3>Calculate Shiping</h3>
@@ -190,7 +190,26 @@ const CartPage = () => {
                       <button type="submit">Update Address</button>
                     </div>
                   </div>
-                  <div className="col-md-6 col-12"> Right side</div>
+                  <div className="col-md-6 col-12"> 
+                        <div className="cart-overview">
+                            <h3>Cart Total</h3>
+                            <ul className="lab-ul">
+                                <li>
+                                    <span className="pull-left">Cart SubTotal</span>
+                                    <p className="pull-right">$ {cartSubTotal} </p>
+                                </li>
+                            
+                                <li>
+                                    <span className="pull-left">Shipping and handling</span>
+                                    <p className="pull-right">Free delivery</p>
+                                </li>
+                                <li>
+                                    <span className="pull-left">Order Total</span>
+                                    <p className="pull-right">{orderTotal.toFixed(2)}</p>
+                                </li>
+                                </ul>
+                        </div>
+                  </div>
                 </div>
               </div>
             </div>
