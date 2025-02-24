@@ -2,6 +2,7 @@ import { Modal } from "react-bootstrap";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "../components/Modal.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckOutPage = () => {
   const [show, setShow] = useState(false);
@@ -14,6 +15,17 @@ const CheckOutPage = () => {
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  //direct home page
+  const location =useLocation();
+  const navigate=useNavigate();
+  const from= location.state?.from?.pathname || "/";
+
+  const handleOrderConfirm=()=>{
+    alert("Your order is placed successfully");
+    localStorage.removeItem("cart"); 
+    navigate(from, {replace:true})
+  }
 
   return (
     <div className="modalCard">
@@ -142,8 +154,8 @@ const CheckOutPage = () => {
                           </div>
                         </div>
                         <div className="px-5 pay">
-                          <button className="btn btn-success btn-block">
-                            Order
+                          <button className="btn btn-success btn-block" onClick={handleOrderConfirm}>
+                            Order Now
                           </button>
                         </div>
                       </div>
@@ -212,7 +224,7 @@ const CheckOutPage = () => {
                           </div>
                         </div>
                         <div className="px-5 pay">
-                          <button className="btn btn-success btn-block">
+                          <button className="btn btn-success btn-block" onClick={handleOrderConfirm}>
                             Add Paypal
                           </button>
                         </div>
@@ -220,7 +232,8 @@ const CheckOutPage = () => {
                     </div>
                   </div>
                 </div>
-                
+                {/*payment disclaimer */}
+                <p className="mt-3 px-4 p-disclaimer"><em>Payment disclaimer:</em> In no event shall payment or partial payment by Owner for any material or services </p>
               </div>
             </div>
           </div>
