@@ -1,6 +1,7 @@
 import { Modal } from "react-bootstrap";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import "../components/Modal.css"
 
 const CheckOutPage = () => {
   const [show, setShow] = useState(false);
@@ -73,6 +74,51 @@ const CheckOutPage = () => {
                     </a>
                   </li>
                 </ul>
+
+                {/* content */}
+                <div className="tab-content" id="myTabContent">
+                  {/* visa content */}
+                  <div className={`tab-pane fade ${ activeTab === "visa" ? "show active" : ""}`}
+                  id="visa"
+                  role="tabpanel"
+                  aria-labelledby="visa-tab"
+                  >
+                    {/* visa tab content*/}
+                    <div className="mt-4 mx-4">
+                      <div className="text-center">
+                        <h5>Credit Card</h5>
+                      </div>
+                      <div className="form mt-3">
+                        <div className="inputbox">
+                          <input type="text" id="name" name="name" className="form-control" required />
+                          <span>CardHolder Name</span>
+                        </div>
+                        <div className="inputbox">
+                          <input type="text" id="number" name="number" min="1" max="999" className="form-control" required />
+                          <span>Card Number </span> <i className="fa fa-eye"></i>
+                        </div>
+                        <div className="d-flex flex-row">
+                        <div className="inputbox">
+                          <input type="text" id="number" name="number" min="1" max="999" className="form-control" required />
+                          <span>Expiration Date  </span> 
+                        </div>
+                        <div className="inputbox">
+                          <input type="text" id="number" name="number" min="1" max="999" className="form-control" required />
+                          <span>CVV</span> 
+                        </div>
+                        </div>
+                        <div className="px-5 pay">
+                          <button className="btn btn-success btn-block">Order</button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+
+                  {/*paypall content */}
+                </div>
+
+
               </div>
             </div>
           </div>
