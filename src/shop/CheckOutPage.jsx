@@ -1,7 +1,7 @@
 import { Modal } from "react-bootstrap";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import "../components/Modal.css"
+import "../components/Modal.css";
 
 const CheckOutPage = () => {
   const [show, setShow] = useState(false);
@@ -54,17 +54,17 @@ const CheckOutPage = () => {
                     </a>
                   </li>
                   <li className="nav-item" role="presentation">
-                    <a className={`nav-link ${
+                    <a
+                      className={`nav-link ${
                         activeTab === "paypal" ? "active" : ""
                       }`}
                       id="paypal-tab"
                       data-toggle="tab"
                       role="tab"
                       aria-controls="paypal"
-                      aria-selected={activeTab === "Paypal"}
-                      onClick={() => handleTabChange("Paypal")}
-                      href="Paypal"
-                      
+                      aria-selected={activeTab === "paypal"}
+                      onClick={() => handleTabChange("paypal")}
+                      href="#paypal"
                     >
                       <img
                         src="https://i.imgur.com/yK7EDD1.png"
@@ -77,11 +77,14 @@ const CheckOutPage = () => {
 
                 {/* content */}
                 <div className="tab-content" id="myTabContent">
-                  {/* visa content */}
-                  <div className={`tab-pane fade ${ activeTab === "visa" ? "show active" : ""}`}
-                  id="visa"
-                  role="tabpanel"
-                  aria-labelledby="visa-tab"
+                  {/*Visa content */}
+                  <div
+                    className={`tab-pane fade ${
+                      activeTab === "visa" ? "show active" : ""
+                    }`}
+                    id="visa"
+                    role="tabpanel"
+                    aria-labelledby="visa-tab"
                   >
                     {/* visa tab content*/}
                     <div className="mt-4 mx-4">
@@ -90,35 +93,134 @@ const CheckOutPage = () => {
                       </div>
                       <div className="form mt-3">
                         <div className="inputbox">
-                          <input type="text" id="name" name="name" className="form-control" required />
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="form-control"
+                            required
+                          />
                           <span>CardHolder Name</span>
                         </div>
                         <div className="inputbox">
-                          <input type="text" id="number" name="number" min="1" max="999" className="form-control" required />
-                          <span>Card Number </span> <i className="fa fa-eye"></i>
+                          <input
+                            type="text"
+                            id="number"
+                            name="number"
+                            min="1"
+                            max="999"
+                            className="form-control"
+                            required
+                          />
+                          <span>Card Number </span>{" "}
+                          <i className="fa fa-eye"></i>
                         </div>
                         <div className="d-flex flex-row">
-                        <div className="inputbox">
-                          <input type="text" id="number" name="number" min="1" max="999" className="form-control" required />
-                          <span>Expiration Date  </span> 
-                        </div>
-                        <div className="inputbox">
-                          <input type="text" id="number" name="number" min="1" max="999" className="form-control" required />
-                          <span>CVV</span> 
-                        </div>
+                          <div className="inputbox">
+                            <input
+                              type="text"
+                              id="number"
+                              name="number"
+                              min="1"
+                              max="999"
+                              className="form-control"
+                              required
+                            />
+                            <span>Expiration Date </span>
+                          </div>
+                          <div className="inputbox">
+                            <input
+                              type="text"
+                              id="number"
+                              name="number"
+                              min="1"
+                              max="999"
+                              className="form-control"
+                              required
+                            />
+                            <span>CVV</span>
+                          </div>
                         </div>
                         <div className="px-5 pay">
-                          <button className="btn btn-success btn-block">Order</button>
+                          <button className="btn btn-success btn-block">
+                            Order
+                          </button>
                         </div>
                       </div>
                     </div>
-                    
                   </div>
 
-                  {/*paypall content */}
+                  {/*Paypal content */}
+                  <div
+                    className={`tab-pane fade ${
+                      activeTab === "paypal" ? "show active" : ""
+                    }`}
+                    id="paypal"
+                    role="tabpanel"
+                    aria-labelledby="paypal-tab"
+                  >
+                    {/* paypal  tab content */}
+                    <div className="mt-4 mx-4">
+                      <div className="text-center">
+                        <h5>Paypal Account Info</h5>
+                      </div>
+                      <div className="form mt-3">
+                        <div className="inputbox">
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            className="form-control"
+                            required
+                          />
+                          <span>Enter your email</span>
+                        </div>
+                        <div className="inputbox">
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="form-control"
+                            required
+                          />
+                          <span>Your name</span>{" "}
+                        </div>
+                        <div className="d-flex flex-row">
+                        <div className="inputbox">
+                            <input
+                              type="text"
+                              id="number"
+                              min="1"
+                              max="999"
+                              name="number"
+                              className="form-control"
+                              required
+                            />
+                            <span>Extra info</span>
+                          </div>
+                        <div className="inputbox">
+                            <input
+                              type="text"
+                              id="number"
+                              min="1"
+                              max="999"
+                              name="number"
+                              className="form-control"
+                              required
+                            />
+                            <span></span>
+                          </div>
+                        </div>
+                        <div className="px-5 pay">
+                          <button className="btn btn-success btn-block">
+                            Add Paypal
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-
+                
               </div>
             </div>
           </div>
