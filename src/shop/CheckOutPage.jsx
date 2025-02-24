@@ -21,11 +21,16 @@ const CheckOutPage = () => {
   const navigate=useNavigate();
   const from= location.state?.from?.pathname || "/";
 
-  const handleOrderConfirm=()=>{
-    alert("Your order is placed successfully");
-    localStorage.removeItem("cart"); 
-    navigate(from, {replace:true})
-  }
+  const handleOrderConfirm = () => {
+    const confirmOrder = window.confirm("Are you sure you want to place the order?");
+    
+    if (confirmOrder) {
+      localStorage.removeItem("cart");
+      alert("Your order is placed successfully");
+      navigate(from, { replace: true });
+    }
+  };
+  
 
   return (
     <div className="modalCard">
