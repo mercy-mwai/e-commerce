@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import blogList from "../utilis/blogdata";
 import { useParams } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import PopularPost from "../shop/PopularPost";
+import Tags from "../shop/Tags";
 
 const SingleBlog = () => {
   const [blog, setBlog] = useState(blogList);
@@ -104,7 +106,7 @@ const SingleBlog = () => {
 
                                     <div className="video-thumb">
                                       <img src="/src/assets/images/blog/single/02.jpg" alt="" />
-                                      <a href="https://www.youtube.com/watch?v=iIxZrYzJJ7I" className="video-button popup">
+                                      <a href="https://www.youtube.com/watch?v=iIxZrYzJJ7I" className="video-button popup" target="-blank">
                                       <i className="icofont-ui-play"></i>
                                       </a>
                                     </div>
@@ -165,7 +167,12 @@ const SingleBlog = () => {
                 </div>
               </article>
             </div>
-            <div className="col-lg-4 col-12">Right Side</div>
+            <div className="col-lg-4 col-12">
+              <aside>
+                <Tags />
+                <PopularPost />
+              </aside>
+            </div>
           </div>
         </div>
       </div>
