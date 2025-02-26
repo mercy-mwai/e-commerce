@@ -10,6 +10,34 @@ const SingleBlog = () => {
   const result = blog.filter((b) => b.id === Number(id));
   console.log(result);
 
+  const socialList = [
+    {
+    link: "#",
+    iconName: "icofont-facebook",
+    className: "facebook",
+    },
+    {
+    link: "#",
+    iconName: "icofont-twitter",
+    className: "twitter",
+    },
+    {
+    link: "#",
+    iconName: "icofont-linkedin",
+    className: "linkedin",
+    },
+    {
+    link: "#",
+    iconName: "icofont-instagram",
+    className: "instagram",
+    },
+    {
+    link: "#",
+    iconName: "icofont-pinterest",
+    className: "pinterest",
+    },
+    ];
+
   return (
     <div>
       <PageHeader title="Single Blog Page" curPage={"Blog / Blog Details"} />
@@ -21,7 +49,7 @@ const SingleBlog = () => {
               <article>
                 <div className="section-wrapper">
                   <div className="row row-cols-1 justify-content-center g-4">
-                    <div className="cols">
+                    <div className="col">
                       <div className="post-item style-2">
                         <div className="post-inner">
                           {result.map((item) => (
@@ -83,9 +111,53 @@ const SingleBlog = () => {
                                     <p>create am alones and feel the charm of exstenceth spot which the blissoulslike mineing am soo happy
                                       my dearest friend absoribed the exquste sense enjoy my whole hearts alone and fee the charm of
                                       existence spotsi which were the ills of souils mineing amsoing dear friend soing absoribed</p>
+
+                                      <div className="tags-section">
+                                        <ul className="tags lab-ul">
+                                          <li>
+                                            <a href="#">Agency</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Business</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Personal</a>
+                                          </li>
+                                        </ul>
+                                        <ul className="lab-ul social-icons">
+                                            {
+                                              socialList.map((val,i)=>(
+                                              <li key={i}>
+                                                <a href="#" className={val.className}>
+                                                  <i className={val.iconName}></i>
+                                                </a>
+                                              </li>
+                                              ))
+                                            }
+                                        </ul>
+                                      </div>
                               </div>
                             </div>
                           ))}
+                        </div>
+                      </div>
+
+                      <div className="navigations-part">
+                        <div className="left">
+                          <a href="#" className="prev">
+                            <i className="icofont-double-left"></i> Previous Blog
+                          </a>
+                          <a href="#" className="title">
+                            Evisculate Parallel Processes Via Technical Sound Models Authoritative
+                          </a>
+                        </div>
+                        <div className="right">
+                          <a href="#" className="prev">
+                            <i className="icofont-double-right"></i> Previous Blog
+                          </a>
+                          <a href="#" className="title">
+                            Evisculate Parallel Processes Via Technical Sound Models Authoritative
+                          </a>
                         </div>
                       </div>
                     </div>
