@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const title ="Login";
@@ -22,7 +22,25 @@ const navigate= useNavigate();
 
 const from= location.state?.from?.pathname || "/";
 
-const handleLogin=(e)=>{
+const handleLogin=(event)=>{
+    event.preventDefault();
+    const form =event.target;
+    //console.log(form);
+    const email =form.email.value;
+    const password =form.password.value;
+    //console.log(email ,password)
+    login(email ,password).then((result) =>{
+        const user =result.user;
+        alert("Login in successfully");
+        navigate(from , {replace:true});
+    }).catch((error) => {
+        const errorMsg =error.message;
+        setErrorMessage("Please provide valid email & password")
+    })
+    
+};
+
+const handleRegister=(e)=>{
 
 }
   return(
@@ -38,7 +56,52 @@ const handleLogin=(e)=>{
                         <div className="form-group">
                             <input type="password" name="password" id="password" placeholder="Password *" required />
                         </div>
+                        <div className="form-group">
+                            <div className="d-flex justify-content-between flex-wrap pt-sm-2">
+                                <div className="checkgroup">
+                                    <input type="checkbox" id="remember" name="remember" />
+                                   <label htmlFor="remember">Remember me</label>
+                                </div>
+                                <Link to="/forgot password">Forgot password?</Link>
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <button type="submit" className="d-block lab-btn">
+                                <span>{btnText}</span>
+                            </button>
+                        </div>
                     </form>
+
+                    {/* account bottom */}
+                    <div className="account-bottom">
+                        <span className="d-block cate pt-10">
+                            Don't have an Account? <Link to="/signup">Sign Up</Link>
+                        </span>
+                        <span className="or">
+                            <span>or</span>
+                        </span>
+
+                        {/*social login */}
+                        <h5 className="subtitle">{socialTitle}</h5>
+                        <ul className="lab-ul social-icons justify-content-center">
+                            <li>
+                                <button  className="github" onClick={handleRegister}><i className="icofont-github"></i></button>
+                            </li>
+                            <li>
+                                <a href="/"  className="facebook"><i className="icofont-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="/"  className="twitter"><i className="icofont-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="/"  className="linkedin"><i className="icofont-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="/"  className="instagram"><i className="icofont-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
