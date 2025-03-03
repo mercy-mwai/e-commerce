@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo  from "../assets/images/logo/logo.png"
+import { AuthContext } from '../contexts/AuthProvider';
 
 
 const NavItems = () => {
     const [menuToggle, setMenuToggle]=useState(false);
     const [socialToggle, setSocialToggle] = useState(false);
     const [headerFixed, setHeaderFixed] = useState(false);
+    //auth info
+    const {user}=useContext(AuthContext);
+    console.log(user)
 
     window.addEventListener("scroll", ()=>{
         if(window.scrollY > 200){
