@@ -110,8 +110,7 @@ const tweetList = [
     iconName: "icofont-twitter",
     desc: (
       <p>
-        Aminur islam <a href="#">@ShopCart Greetings! #HTML_Template</a> Grab
-        your item, 50% Big Sale Offer !!
+        Aminur islam  Grab your item, 50% Big Sale Offer !!
       </p>
     ),
   },
@@ -119,8 +118,7 @@ const tweetList = [
     iconName: "icofont-twitter",
     desc: (
       <p>
-        Somrat islam <a href="#">@ShopCart Hey! #HTML_Template</a> Grab your
-        item, 50% Big Sale Offer !!
+        Somrat islam  Grab your item, 50% Big Sale Offer !!
       </p>
     ),
   },
